@@ -15,8 +15,10 @@ module.exports = async options => {
   }
 
   const fallbackToDefault = (property, defaultValue) => {
-    options[property] = Object.prototype.hasOwnProperty.call(options, property) ? options[property] : defaultValue
+    options[property] = hasOwnProperty.call(options, property) ? options[property] : defaultValue
   }
+
+  const hasOwnProperty = Object.prototype.hasOwnProperty
 
   // Buffer Video Element
   const video = document.createElement('video')
@@ -69,8 +71,8 @@ module.exports = async options => {
   const interval = (options.endTime - options.startTime) / (options.count + 1)
 
   // Set Width and Height
-  let isWidthSet = Object.prototype.hasOwnProperty.call(options, 'width')
-  let isHeightSet = Object.prototype.hasOwnProperty.call(options, 'height')
+  let isWidthSet = hasOwnProperty.call(options, 'width')
+  let isHeightSet = hasOwnProperty.call(options, 'height')
   const videoDimensionRatio = video.videoWidth / video.videoHeight
 
   // Reset Width and Height if not valid
@@ -106,7 +108,7 @@ module.exports = async options => {
       await new Promise(resolve => { seekResolve = resolve })
       context.clearRect(0, 0, canvas.width, canvas.height)
       context.drawImage(video, 0, 0, canvas.width, canvas.height)
-      frames.push(canvas.toDataURL(options.format))
+      frames.push({ offset: video.currentTime, image: canvas.toDataURL(options.format) })
       index++
     }
     resolve(frames)
