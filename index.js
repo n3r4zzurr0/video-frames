@@ -1,4 +1,4 @@
-const videoFrames = async options => {
+module.exports = async options => {
 
 	let index = 0;
 	let error = false;
@@ -128,5 +128,3 @@ const videoFrames = async options => {
 		resolve(frames);
 	});
 };
-
-module.exports = { videoFrames };
