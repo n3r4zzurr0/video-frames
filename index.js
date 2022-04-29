@@ -100,9 +100,7 @@ module.exports = async options => {
   canvas.width = options.width
   canvas.height = options.height
 
-  return new Promise(async resolve => {
-    if (error) { resolve([]) }
-
+  const extract = async resolve => {
     while (index < options.count) {
       video.currentTime = extractOffsets ? options.offsets[index] : options.startTime + (index + 1) * interval
       await new Promise(resolve => { seekResolve = resolve })
@@ -112,5 +110,10 @@ module.exports = async options => {
       index++
     }
     resolve(frames)
+  }
+
+  return new Promise(resolve => {
+    if (error) { resolve([]) }
+    extract(resolve)
   })
 }
