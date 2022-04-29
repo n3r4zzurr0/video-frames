@@ -12,6 +12,6 @@
 		"url": "git+https://github.com/n3r4zzurr0/video-frames.git"
 	},
 	"scripts": {
-    	"test": "standard"
+		"test": "standard"
     }
 }
