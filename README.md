@@ -13,7 +13,7 @@ Client-side video frames extraction as base64 encoded images
 
 :warning: **Doesn't work in Safari on iOS**
 
-From [developer.apple.com](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d/1630282-drawimage),
+From [Apple Developer Documentation](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d/1630282-drawimage),
 
 > The image object can be an `img` element, a `canvas` element, or a `video` element. **Use of the `video` element is not supported in Safari on iOS**, however.
 
