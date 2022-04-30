@@ -4,10 +4,18 @@
 [npm-url]: https://npmjs.org/package/video-frames
 [size-image]: https://img.shields.io/bundlephobia/minzip/video-frames@latest
 [size-url]: https://bundlephobia.com/result?p=video-frames@latest
+[standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[standard-url]: https://standardjs.com
 
-# video-frames [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url]
+# video-frames [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![javascript style guide][standard-image]][standard-url]
 
 Client-side video frames extraction as base64 encoded images
+
+:warning: **Doesn't work in Safari on iOS**
+
+From [developer.apple.com](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d/1630282-drawimage),
+
+> The image object can be an `img` element, a `canvas` element, or a `video` element. **Use of the `video` element is not supported in Safari on iOS**, however.
 
 ## Install
 ```
