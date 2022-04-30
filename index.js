@@ -14,6 +14,10 @@ module.exports = async options => {
     return isNumber(timestamp) && +timestamp >= 0 && +timestamp <= video.duration
   }
 
+  const isPrototypeOf = (constructor, value) => {
+    return (value instanceof constructor)
+  }
+
   const fallbackToDefault = (property, defaultValue) => {
     options[property] = hasOwnProperty.call(options, property) ? options[property] : defaultValue
   }
@@ -31,10 +35,10 @@ module.exports = async options => {
     error = true
   }
 
-  while ((video.duration === Infinity || isNaN(video.duration)) && video.readyState < 2 && !error) {
+  while ((video.duration === Infinity || isNaN(video.duration)) && video.readyState < 2) {
     await new Promise(resolve => setTimeout(resolve, 100))
     video.currentTime = 10000000 * Math.random()
-    error = false
+    if (error) { break }
   }
 
   // Set options to default values if not set
@@ -43,9 +47,11 @@ module.exports = async options => {
   fallbackToDefault('startTime', 0)
   fallbackToDefault('endTime', video.duration)
   fallbackToDefault('count', 1)
+  fallbackToDefault('onLoad', false)
+  fallbackToDefault('onProgress', false)
 
   // Filter out invalid offsets
-  if (options.offsets.constructor !== Array) { options.offsets = [] } else {
+  if (!isPrototypeOf(Array, options.offsets)) { options.offsets = [] } else {
     options.offsets = options.offsets.filter(offset => {
       return isTimestamp(offset)
     })
@@ -65,10 +71,11 @@ module.exports = async options => {
 
   // Convert count value to a positive integer (floor() or 0 if string)
   options.count = Math.abs(~~options.count)
+  if (options.count === 0) { options.count = 1 }
   if (extractOffsets) { options.count = options.offsets.length }
 
-  // Starting at startTime + interval and ending at endTime - interval
-  const interval = (options.endTime - options.startTime) / (options.count + 1)
+  // Starting at startTime and ending at endTime - interval
+  const interval = (options.endTime - options.startTime) / options.count
 
   // Set Width and Height
   let isWidthSet = hasOwnProperty.call(options, 'width')
@@ -82,7 +89,7 @@ module.exports = async options => {
 
   if (!isWidthSet && !isHeightSet) {
     // Both Width and Height not set
-    options.width = 128
+    options.width = 128 // Default Value (randomly set)
     options.height = options.width / videoDimensionRatio
   } else if (isWidthSet && !isHeightSet) {
     // Width set but Height not set
@@ -96,6 +103,15 @@ module.exports = async options => {
   options.width = +options.width
   options.height = +options.height
 
+  // Reset onLoad and onProgress functions if not valid
+  if (!isPrototypeOf(Function, options.onLoad)) { options.onLoad = false }
+
+  if (!isPrototypeOf(Function, options.onProgress)) { options.onProgress = false }
+
+  console.log(options)
+
+  if (options.onLoad) { options.onLoad() }
+
   // Buffer Canvas Element
   const canvas = document.createElement('canvas')
   const context = canvas.getContext('2d')
@@ -104,18 +120,23 @@ module.exports = async options => {
 
   const extract = async resolve => {
     while (index < options.count) {
-      video.currentTime = extractOffsets ? options.offsets[index] : options.startTime + (index + 1) * interval
+      video.currentTime = extractOffsets ? options.offsets[index] : options.startTime + index * interval
       await new Promise(resolve => { seekResolve = resolve })
       context.clearRect(0, 0, canvas.width, canvas.height)
       context.drawImage(video, 0, 0, canvas.width, canvas.height)
-      frames.push({ offset: video.currentTime, image: canvas.toDataURL(options.format) })
+      frames.push({
+        offset: video.currentTime,
+        image: canvas.toDataURL(options.format)
+      })
       index++
+      if (options.onProgress) { options.onProgress(index, options.count) }
     }
     resolve(frames)
   }
 
   return new Promise(resolve => {
     if (error) { resolve([]) }
+
     extract(resolve)
   })
 }
