@@ -73,8 +73,11 @@ Since the [`canvas`](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 From [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL#parameters), 
 
 > **`toDataURL(type)`**
+> 
 > ...
+> 
 > **`type`**
+> 
 > A string indicating the image format. The default type is `image/png`; this image format will be also used if the specified type is not supported.
 
 So, if a type is not supported, it will fall back to `image/png`.
