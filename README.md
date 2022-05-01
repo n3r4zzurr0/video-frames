@@ -1,5 +1,5 @@
-[travis-image]: https://img.shields.io/travis/feross/clipboard-copy/master.svg
-[travis-url]: https://travis-ci.org/feross/clipboard-copy
+[travis-image]: https://img.shields.io/travis/n3r4zzurr0/video-frames/main.svg
+[travis-url]: https://app.travis-ci.com/github/n3r4zzurr0/video-frames
 [npm-image]: https://img.shields.io/npm/v/video-frames.svg
 [npm-url]: https://npmjs.org/package/video-frames
 [size-image]: https://img.shields.io/bundlephobia/minzip/video-frames@latest
