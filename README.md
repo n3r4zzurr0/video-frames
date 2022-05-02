@@ -45,101 +45,101 @@ videoFrames({
 
 ## API
 
-### videoFrames(options)
+### `videoFrames(options)`
 
 Returns a `Promise` for when all frames have been extracted. There are a few properties that can be set in `options`.
 
-#### options
+#### `options`
 
-####  `url` (required)
+*	####  `url` (required)
 
-Default Value: *empty*
+	Default value: *empty*
 
-The URL (self, remote, or blob) of the source video from which the frames are to be extracted. Since the [`video`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element is used in the extraction process, the allowed formats are the ones that are playable in it. You can search for the supported formats on [caniuse.com/?search=video%20format](https://caniuse.com/?search=video%20format)
+	The URL (self, remote, or blob) of the source video from which the frames are to be extracted. Since the [`video`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element is used in the extraction process, the allowed formats are the ones that are playable in it. You can search for the supported formats on [caniuse.com/?search=video%20format](https://caniuse.com/?search=video%20format)
 
-####  `width`
+*	####  `width`
 
-Default Value: `128`
+	Default value: `128`
 
-Width of the extracted frames in pixels.
+	Width of the extracted frames in pixels.
 If no value for `width` is set, but a value for `height` is set, then the `width` will be calculated using the video dimensions.
 
-####  `height`
+*	####  `height`
 
-Default Value: `auto`
+	Default value: `auto`
 
-Height of the extracted frames in pixels.
+	Height of the extracted frames in pixels.
 If not set, `height` is calculated automatically from the value of `width` using the video dimensions.
 
-####  `format`
+*	####  `format`
 
-Default Value: `image/png`
+	Default value: `image/png`
 
-MIME type of the extracted frames.
+	MIME type of the extracted frames.
 Since the [`canvas`](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) element is used for drawing the frames and `toDataURL(format)` is used for reading them as base64 encoded images, the allowed MIME types are the ones that are supported by `toDataURL`.
 
-From [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL#parameters), 
+	From [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL#parameters), 
 
-> **`toDataURL(type)`**
-> 
-> ...
-> 
-> **`type`**
-> 
-> A string indicating the image format. The default type is `image/png`; this image format will be also used if the specified type is not supported.
+	> **`toDataURL(type)`**
+	> 
+	> ...
+	> 
+	> **`type`**
+	> 
+	> A string indicating the image format. The default type is `image/png`; this image format will be also used if the specified type is not supported.
 
-So, if a type is not supported, it will fall back to `image/png`.
+	So, if a type is not supported, it will fall back to `image/png`.
 
-####  `startTime`
+*	####  `startTime`
 
-Default Value: `0`
+	Default value: `0`
 
-Start timestamp (in seconds) of the range from where the frames are to be extracted.
+	Start timestamp (in seconds) of the range from where the frames are to be extracted.
 It will be ignored if a valid value for `offsets` is set.
 
-####  `endTime`
+*	####  `endTime`
 
-Default Value: *Video Duration*
+	Default value: *Video Duration*
 
-End timestamp (in seconds) of the range from where the frames are to be extracted.
+	End timestamp (in seconds) of the range from where the frames are to be extracted.
 It will be ignored if a valid value for `offsets` is set.
 
-####  `count`
+*	####  `count`
 
-Default Value: `1`
+	Default value: `1`
 
-Number of frames to be extracted from the range set by `startTime` and `endTime`.
+	Number of frames to be extracted from the range set by `startTime` and `endTime`.
 The frames are extracted from evenly spaced timestamps across the range.
 It will be ignored if a valid value for `offsets` is set.
 
-####  `offsets`
+*	####  `offsets`
 
-Default Value: `[]`
+	Default value: `[]`
 
-Array of timestamps (in seconds) to extract frames at.
+	Array of timestamps (in seconds) to extract frames at.
 If a valid value for `offsets` is set, `startTime`, `endTime`, and `count` are **ignored**.
 
-####  `onLoad()`
+*	####  `onLoad`
 
-Default Value: `false`
+	Default value: `false`
 
-Function to be called when the source video has loaded and the extraction process has started.
+	Function to be called when the source video has loaded and the extraction process has started.
 
-```js
-onLoad: () => { console.log('video loaded') }
-```
+	```js
+	onLoad: () => { console.log('video loaded') }
+	```
 
-####  `onProgress()`
+*	####  `onProgress`
 
-Default Value: `false`
+	Default value: `false`
 
-Function to be called on every successful frame extraction.
-```js
-onProgress: (framesExtracted) => { console.log(`${framesExtracted} frames extracted`) }
-```
-```js
-onProgress: (framesExtracted, totalFrames) => { console.log(`${framesExtracted} of ${totalFrames} frames extracted`) }
-```
+	Function to be called on every successful frame extraction.
+	```js
+	onProgress: (framesExtracted) => { console.log(`${framesExtracted} frames extracted`) }
+	```
+	```js
+	onProgress: (framesExtracted, totalFrames) => { console.log(`${framesExtracted} of ${totalFrames} frames extracted`) }
+	```
 
 
 ## License
