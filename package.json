@@ -13,6 +13,11 @@
 		"browser"
 	],
 	"main": "index.js",
+	"files": [
+		"index.js",
+		"README.md",
+		"LICENSE"
+	],
 	"license": "MIT",
 	"repository": {
 		"type": "git",
