@@ -7,9 +7,10 @@
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
-# video-frames [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![javascript style guide][standard-image]][standard-url]
+# video-frames
+[![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![javascript style guide][standard-image]][standard-url]
 
-Client-side video frames extraction as base64 encoded images
+Client-side video frames extraction as base64 encoded images.
 
 :warning: **Doesn't work in Safari on iOS**
 
@@ -55,7 +56,7 @@ Returns a `Promise` for when all frames have been extracted. There are a few pro
 
 	Default value: *empty*
 
-	The URL (self, remote, or blob) of the source video from which the frames are to be extracted. Since the [`video`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element is used in the extraction process, the allowed formats are the ones that are playable in it. You can search for the supported formats on [caniuse.com/?search=video%20format](https://caniuse.com/?search=video%20format)
+	The URL (self, remote [an [`Access-Control-Allow-Origin`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) header must be present in case of a remote URL], or blob) of the source video from which the frames are to be extracted. Since the [`video`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video) element is used in the extraction process, the allowed formats are the ones that are playable in it. You can search for the supported formats on [caniuse.com/?search=video%20format](https://caniuse.com/?search=video%20format)
 
 *	####  `width`
 
