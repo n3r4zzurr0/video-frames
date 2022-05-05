@@ -12,6 +12,10 @@
 
 Client-side video frames extraction as base64 encoded images.
 
+[Demo](https://n3r4zzurr0.in/demo/video-frames/)
+
+[CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)
+
 :warning: **Doesn't work in Safari on iOS**
 
 From [Apple Developer Documentation](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d/1630282-drawimage),
