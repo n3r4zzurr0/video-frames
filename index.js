@@ -69,6 +69,10 @@ module.exports = async options => {
     options.count = 1
   }
 
+  // Float values
+  options.startTime = +options.startTime
+  options.endTime = +options.endTime
+
   // Convert count value to a positive integer (floor() or 0 if string)
   options.count = Math.abs(~~options.count)
   if (options.count === 0) { options.count = 1 }
