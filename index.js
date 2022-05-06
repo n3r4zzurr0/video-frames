@@ -64,14 +64,14 @@ module.exports = async options => {
 
   if (!isTimestamp(options.endTime)) { options.endTime = video.duration }
 
+  // Float values
+  options.startTime = +options.startTime
+  options.endTime = +options.endTime
+
   if (options.startTime >= options.endTime) {
     options.startTime = options.endTime
     options.count = 1
   }
-
-  // Float values
-  options.startTime = +options.startTime
-  options.endTime = +options.endTime
 
   // Convert count value to a positive integer (floor() or 0 if string)
   options.count = Math.abs(~~options.count)
