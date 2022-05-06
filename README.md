@@ -14,9 +14,7 @@ Client-side video frames extraction as base64 encoded images.
 
 **[Demo](https://n3r4zzurr0.in/video-frames/demo/) / [CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)**
 
-**Supported browsers:** Chrome, Firefox, Edge, Safari :warning:
-
-Works in the browser with [browserify](http://browserify.org/).
+Works in the browser with [browserify](http://browserify.org/)!
 
 :warning: Doesn't work in Safari on iOS
 
