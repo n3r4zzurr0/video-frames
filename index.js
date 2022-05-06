@@ -41,6 +41,11 @@ module.exports = async options => {
     if (error) { break }
   }
 
+  // Set currentTime to duration / 2
+  // (fix for correctly invoking onseeked event for currentTime = 0 if the first frame is at 0 sec.)
+  video.currentTime = video.duration / 2;
+  await new Promise(resolve => { seekResolve = resolve; });
+
   // Set options to default values if not set
   fallbackToDefault('format', 'image/png')
   fallbackToDefault('offsets', [])
