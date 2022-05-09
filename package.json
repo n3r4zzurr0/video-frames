@@ -12,9 +12,11 @@
 		"base64",
 		"browser"
 	],
-	"main": "index.js",
+	"main": "dist/videoframes.min.js",
+	"unpkg": "dist/videoframes.umd.min.js",
+	"jsdelivr": "dist/videoframes.umd.min.js",
 	"files": [
-		"index.js",
+		"dist/",
 		"README.md",
 		"LICENSE"
 	],
