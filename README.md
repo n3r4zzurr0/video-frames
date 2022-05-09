@@ -14,7 +14,7 @@ Client-side video frames extraction as base64 encoded images.
 
 **[Demo](https://n3r4zzurr0.in/video-frames/demo/) / [CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)**
 
-Works in the browser with [browserify](http://browserify.org/)!
+<br>
 
 :warning: Doesn't work in Safari on iOS
 
@@ -22,9 +22,24 @@ From [Apple Developer Documentation](https://developer.apple.com/documentation/w
 
 > The image object can be an `img` element, a `canvas` element, or a `video` element. **Use of the `video` element is not supported in Safari on iOS**, however.
 
-## Install
+## Installation
+
+**npm**
+
 ```
 npm install video-frames
+```
+
+**CDN**
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/video-frames@1/dist/videoframes.umd.min.js"></script>
+```
+
+or
+
+```html
+<script src="https://unpkg.com/video-frames@1"></script>
 ```
 
 ## Usage
