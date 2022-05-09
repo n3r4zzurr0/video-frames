@@ -1,6 +1,6 @@
 {
 	"name": "video-frames",
-	"version": "1.0.14",
+	"version": "1.0.15",
 	"private": false,
 	"description": "Client-side video frames extraction as base64 encoded images",
 	"author": "Utkarsh Verma",
