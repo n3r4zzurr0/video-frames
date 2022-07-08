@@ -1,26 +1,32 @@
-[travis-image]: https://img.shields.io/travis/n3r4zzurr0/video-frames/main.svg
-[travis-url]: https://app.travis-ci.com/github/n3r4zzurr0/video-frames
+[circleci-image]: https://circleci.com/gh/n3r4zzurr0/video-frames.svg?style=shield
+[circleci-url]: https://circleci.com/gh/n3r4zzurr0/video-frames
 [npm-image]: https://img.shields.io/npm/v/video-frames.svg
 [npm-url]: https://npmjs.org/package/video-frames
 [size-image]: https://img.shields.io/bundlephobia/minzip/video-frames@latest
 [size-url]: https://bundlephobia.com/result?p=video-frames@latest
+[vulnerabilities-image]: https://snyk.io/test/npm/video-frames/badge.svg
+[vulnerabilities-url]: https://snyk.io/test/npm/video-frames
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
+[license-image]: https://img.shields.io/github/license/n3r4zzurr0/video-frames.svg
+[license-url]: https://github.com/n3r4zzurr0/video-frames/blob/main/LICENSE
 
 # video-frames
-[![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![javascript style guide][standard-image]][standard-url]
+[![circleci][circleci-image]][circleci-url] [![npm][npm-image]][npm-url] [![size][size-image]][size-url] [![known vulnerabilities][vulnerabilities-image]][vulnerabilities-url] [![javascript style guide][standard-image]][standard-url] [![license][license-image]][license-url]
 
 Client-side video frames extraction as base64 encoded images.
 
 **[Demo](https://n3r4zzurr0.in/video-frames/demo/) / [CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)**
 
-<br>
+<hr>
 
 :warning: Doesn't work in Safari on iOS
 
 From [Apple Developer Documentation](https://developer.apple.com/documentation/webkitjs/canvasrenderingcontext2d/1630282-drawimage),
 
 > The image object can be an `img` element, a `canvas` element, or a `video` element. **Use of the `video` element is not supported in Safari on iOS**, however.
+
+<hr>
 
 ## Installation
 
