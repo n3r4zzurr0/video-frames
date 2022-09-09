@@ -16,7 +16,7 @@
 
 Client-side video frames extraction as base64 encoded images.
 
-**[Demo](https://n3r4zzurr0.in/video-frames/demo/) / [CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)**
+**[Demo](https://n3r4zzurr0.in/video-frames/) / [CodePen](https://codepen.io/n3r4zzurr0/pen/abqOXpQ?editors=1010)**
 
 <hr>
 
